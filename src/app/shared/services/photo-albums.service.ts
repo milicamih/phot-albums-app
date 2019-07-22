@@ -13,8 +13,8 @@ export class PhotoAlbumsService {
     return this.http.get<any[]>( this.URL + '/albums');
   }
 
-  public getPhotos(): Observable<any[]> {
-    return this.http.get<any[]>( this.URL + '/photos');
+  public getPhotos(id: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.URL}/photos?albumId=${id}`);
   }
 
   public getUsers(): Observable<any[]> {

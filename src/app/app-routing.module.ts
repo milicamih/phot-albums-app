@@ -6,21 +6,21 @@ import { PageNotFoundComponent } from './shared/page-not-found.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
+    path: 'photo-album',
     component: AlbumsPageComponent
   },
   {
-    path: 'photos',
-    component: PhotosPageComponent
+    path: 'photo-album-detail/:id',
+    component: PhotosPageComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'photo-album',
+    pathMatch: 'full'
   },
   {
     path: '**',
-    component: AlbumsPageComponent
-  },
-  {
-    path: ' ',
-    component: PageNotFoundComponent
+    component: PageNotFoundComponent,
   }
 ];
 

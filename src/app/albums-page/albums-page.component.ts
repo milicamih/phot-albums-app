@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoAlbumsService } from '../shared/services/photo-albums.service';
+import { Albums } from '../shared/models/albums';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -8,33 +9,34 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./albums-page.component.scss']
 })
 export class AlbumsPageComponent implements OnInit {
-  albums = [];
- 
-  constructor(private photoAlbumsService: PhotoAlbumsService,) { }
+  albums: Albums[] = [];
+  term: string;
+
+  constructor(private photoAlbumsService: PhotoAlbumsService) { }
 
   ngOnInit() {
     forkJoin([
       this. photoAlbumsService.getAlbums(),
       this. photoAlbumsService.getUsers()
-    ]).subscribe(([albums, users])=> {
+    ]).subscribe(([albums, users]) => {
       this.albums = albums;
       this.addUserToAlbum(users);
-      console.log(this.albums);
+      console.log(albums);
     }, (error) => {
       console.log(error);
-    })
-
-    this.photoAlbumsService.getPhotos().subscribe(data =>{
-      console.log(data);
-    })
+    });
   }
 
   addUserToAlbum(users: any) {
-    this.albums.forEach(album=> {
-       let findUser = users.find(user => user.id === album.userId);  
-       if(findUser) {
-        album.name = findUser.name;
+    this.albums.forEach(album => {
+       const findUser = users.find(user => user.id === album.userId);
+       if (findUser) {
+        album.creatorName = findUser.name;
       }
-    })
+    });
+  }
+
+  deleteAlbum(album: Albums) {
+    album.isDeleted = true;
   }
 }

@@ -1,1 +1,27 @@
-<p>photos-page works!</p>
+<div class="gallery-warper">
+    <h1 class="headline">PHOTO GALERY</h1>
+
+   <div class="form-field-btn-warper">
+       <form id="filter" style="margin:0 0 10px 0">
+          <label><b>Filter galery by title:</b></label>
+          <i class="fa fa-search"></i>
+          <input type="text" name="title" placeholder="Search..." [(ngModel)]="term"/>
+       </form>
+       <button (click)="btnClick()">Go to albums page</button>
+   </div> 
+
+   <div  class="flex-container">
+     <div *ngFor="let photo of photos | filter:term" class="photo-flex-item" [ngClass]="isDeleted? 'photo-delete-flex-item' : 'photo-flex-item'">
+
+        <h6>{{photo.title | capitalizeFirstLetter}}</h6>
+        <div class="image-warper">
+             <img src="{{photo.thumbnailUrl}}" (click)="showImage(photo)" alt="">  
+             <div class="delete-icon-warper">
+                  <i class="fa fa-trash" *ngIf="!isDeleted" (click)="deleteImage(photo)"></i> 
+             </div>             
+        </div> 
+                         
+     </div>
+  </div>
+  
+ </div>

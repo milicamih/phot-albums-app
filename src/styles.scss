@@ -1,1 +1,225 @@
 /* You can add global styles to this file, and also import other style files */
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+
+@font-face {
+    font-family: caveatRegular;
+    src: url('./assets/fonts/caveat-regular.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button:focus, 
+button:active,
+input:focus,
+input:active {
+    outline:none;
+    box-shadow: none;
+}
+
+body{
+    width: 96%;    
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color:#e1e1c4;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/*common style*/
+.gallery-warper{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+   .headline{
+       margin-bottom: 40px;
+       text-align: center;
+       color: #273c3f;
+       text-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
+       border: 2px solid #273c3f;
+       font-family: caveatRegular, sans-serif;
+       font-size: 3rem;
+       box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);     
+   }
+
+    .flex-container{
+        font-size: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        flex-flow: row wrap;
+    }   
+}
+
+form{
+    margin: 0 auto;
+    margin: 1.5rem;
+    position: relative;
+
+    input{  
+        width: 100%; 
+        display: block;
+        font-size: 15px;
+        color:grey;
+        padding-left: 28px;
+        height: 30px;
+        background-color: #e1e1c4;
+        border-radius: 2px;
+        border: 2px solid #273c3f;
+    }
+
+    label {
+        color: #273c3f;
+        font-size: 16px;
+    }
+
+    .fa{
+        position: absolute;
+        color: grey;
+        font-size: 19px;
+        left: 7px;
+        top: 25px;
+    }
+}   
+
+/*album-page style style*/
+.flex-item{
+    flex: auto;
+    width: 230px;
+    margin: 1.5rem;
+    position: relative;
+    border: 2px solid #273c3f;
+    border-radius: 4px;
+    box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
+
+    .title-warper{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        color: #273c3f;
+        background: #7fffd408;
+        z-index: 100;
+        transition: ease-in 2s;
+        border-bottom: 2px solid #273c3f;
+    }
+        
+    h1 {
+        padding: 20px 20px 0;
+        text-align: center;
+        font-size: 2.1rem;
+        font-family: caveatRegular, sans-serif;
+        text-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
+    }
+
+}
+
+.image-warper{
+    width: 100%;
+    position: relative;
+}
+
+.flex-container .flex-item img{ 
+    width: 100%;
+    height: auto;
+}
+    
+p {
+    padding: 10px;
+    font-size: 15px;
+    color: grey;
+}
+
+  
+.flex-item:hover .image-warper .title-warper {
+    background-image: linear-gradient(to bottom, #6befdef5, #63f1de85, #77fbea52, #e6ede826, #f3f4f126);
+}
+
+.flex-item:hover  {
+   transform: scale(1.1);
+   cursor: pointer;
+}
+
+.form-field-btn-warper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1.5rem;
+
+    button{
+        padding: 6px 20px;
+        background-color: #e1e1c4;
+        border-radius: 2px;
+        border: 2px solid #273c3f;
+        margin-top: 7px;
+    }
+   
+}
+
+.photo-flex-item{
+    flex: auto;
+    width: 150px;
+    margin: 1rem;
+    position: relative;
+    border: 2px solid #273c3f;
+    border-radius: 4px;
+    box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
+    padding: 10px;
+}
+
+.photo-delete-flex-item{
+    flex: auto;
+    width: 150px;
+    margin: 1rem;
+    position: relative;
+    border: 2px solid red;
+    border-radius: 4px;
+    //box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
+    padding: 10px;
+    cursor: not-allowed;
+}
+
+.image-warper-photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+h6{
+    text-align: center;
+    font-size: 14px;
+    color:#273c3f;
+    margin-bottom: 10px;
+}
+
+.delete-icon-warper{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    
+} 
+
+    .fa{
+        color: black;
+        font-size: 20px;
+        cursor: pointer;
+
+    }   
+
+
+img{
+    width: 100%;
+    height: auto;
+}
