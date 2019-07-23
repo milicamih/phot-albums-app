@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Photo } from '../shared/models/photos';
+import { Photo } from '../shared/models/photo';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PhotoAlbumsService } from '../shared/services/photo-albums.service';
 import { SpinnerService } from '../shared/services/spinner.service';
