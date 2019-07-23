@@ -13,8 +13,7 @@ import { SpinnerService } from '../shared/services/spinner.service';
 export class PhotosPageComponent implements OnInit {
   photos: Photo [] = [];
   term: string;
-  isDeleted = false;
-  url;
+  url: string;
   showImage = false;
 
   constructor(private route: ActivatedRoute,
@@ -25,7 +24,6 @@ export class PhotosPageComponent implements OnInit {
   ngOnInit() {
     this.spinnerService.start();
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
     this.photoAlbumService.getPhotos(id).subscribe(
       data => {
         this.photos = data;
@@ -36,20 +34,24 @@ export class PhotosPageComponent implements OnInit {
         console.log(error);
       });
   }
-
+  //DELETE FULL SIZE IMAGE
   deleteImage(photo: Photo) {
-    this.isDeleted = true;
+    photo.isDeleted = true;
   }
-
-  showBigImage(photo) {
-    this.url = photo.url;
-    this.showImage = true;
+  //SHOW FULL SIZE IMAGE
+  showBigImage(photo: Photo) {
+    if(!photo.isDeleted) {
+      this.spinnerService.start();
+      this.url = photo.url;
+      this.showImage = true;
+      this.spinnerService.stop();
+    }
   }
-
+  //HIDE FULL SIZE IMAGE
   closeBigImage() {
     this.showImage = false;
   }
-
+  //BACK TO ALBUMS PAGE
   btnClick() {
     this.router.navigateByUrl('/photo-album');
   }

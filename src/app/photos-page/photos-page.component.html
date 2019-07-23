@@ -12,12 +12,12 @@
 
    <div  class="flex-container">
      <div *ngFor="let photo of photos | filter:term" class="photo-flex-item" 
-     [ngClass]="isDeleted? 'photo-delete-flex-item' : 'photo-flex-item'">
+     [ngClass]="photo.isDeleted ? 'photo-delete-flex-item' : 'photo-flex-item'">
         <h6>{{photo.title | capitalizeFirstLetter}}</h6>
         <div class="image-warper" (click)="showBigImage(photo)">
              <img src="{{photo.thumbnailUrl}}"alt="">              
         </div>       
-        <i class="fa fa-trash" *ngIf="!isDeleted" (click)="deleteImage(photo)"></i>               
+        <i class="fa fa-trash" *ngIf="!photo.isDeleted" (click)="deleteImage(photo)"></i>               
      </div>
   </div>
   

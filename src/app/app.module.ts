@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { AlbumsPageComponent } from './albums-page/albums-page.component';
 import { PhotosPageComponent } from './photos-page/photos-page.component';
 import { PageNotFoundComponent } from './shared/page-not-found.component';
-import { CapitalizeFirstLetterPipe } from './shared/pipes/capitalizeFirstLetter';
-import { FilterPipe} from './shared/pipes/filterPipe';
+import { CapitalizeFirstLetterPipe } from './shared/pipes/capitalize-first-letter.pipe';
+import { FilterPipe} from './shared/pipes/filter.pipe';
 
 
 @NgModule({

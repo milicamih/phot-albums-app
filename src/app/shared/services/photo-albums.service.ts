@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PhotoAlbumsService {
   URL = 'https://jsonplaceholder.typicode.com';
+  
   constructor(private http: HttpClient) { }
 
   public getAlbums(): Observable<any[]> {
