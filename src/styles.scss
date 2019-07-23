@@ -7,6 +7,8 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
     src: url('./assets/fonts/caveat-regular.ttf');
 }
 
+$dark-grey: #273c3f;
+
 *{
     margin: 0;
     padding: 0;
@@ -22,7 +24,7 @@ input:active {
 }
 
 body{
-    width: 96%;    
+    width: 85%;    
     margin: 0 auto;
     margin-top: 10px;
     background-color:#e1e1c4;
@@ -39,10 +41,8 @@ body{
        text-align: center;
        color: #273c3f;
        text-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
-       border: 2px solid #273c3f;
        font-family: caveatRegular, sans-serif;
-       font-size: 3rem;
-       box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);     
+       font-size: 3rem;     
    }
 
     .flex-container{
@@ -51,6 +51,7 @@ body{
         flex-wrap: wrap;
         flex-direction: column;
         flex-flow: row wrap;
+        justify-content: center;
     }   
 }
 
@@ -68,11 +69,11 @@ form{
         height: 30px;
         background-color: #e1e1c4;
         border-radius: 2px;
-        border: 2px solid #273c3f;
+        border: 2px solid $dark-grey;
     }
 
     label {
-        color: #273c3f;
+        color: $dark-grey;
         font-size: 16px;
     }
 
@@ -92,7 +93,7 @@ form{
     max-width: 350px;
     margin: 1.5rem;
     position: relative;
-    border: 2px solid #273c3f;
+    border: 2px solid $dark-grey;
     border-radius: 4px;
     box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
 
@@ -104,11 +105,11 @@ form{
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        color: #273c3f;
+        color: $dark-grey;
         background: #7fffd408;
         z-index: 100;
         transition: ease-in 2s;
-        border-bottom: 2px solid #273c3f;
+        border-bottom: 2px solid $dark-grey;
     }
         
     h1 {
@@ -155,11 +156,15 @@ p {
     margin: 1.5rem;
 
     button{
-        padding: 6px 20px;
+        padding: 6px 30px;
         background-color: #e1e1c4;
         border-radius: 2px;
-        border: 2px solid #273c3f;
+        border: 2px solid $dark-grey;
         margin-top: 7px;
+        color :$dark-grey;
+    }
+    button:hover{
+        background-color: #6befdef5;
     }
    
 }
@@ -168,13 +173,11 @@ p {
     flex: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
     width: 150px;
     max-width: 250px;
     margin: 1rem;
     position: relative;
-    border: 2px solid #273c3f;
+    border: 2px solid $dark-grey;
     border-radius: 4px;
     box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
     padding: 10px;
@@ -185,9 +188,9 @@ p {
     width: 150px;
     margin: 1rem;
     position: relative;
-    border: 2px solid red;
+    border: 4px solid red;
+    border-left: transform;
     border-radius: 4px;
-    //box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
     padding: 10px;
     cursor: not-allowed;
 }
@@ -205,30 +208,101 @@ h6{
     justify-self: flex-start !important;
 }
 
-.delete-icon-warper{
-   
-} 
+.fa{
+    color:$dark-grey;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: end;
+}   
 
-    .fa{
-        color: black;
-        font-size: 20px;
-        cursor: pointer;
-        aling-self: end;
-    }   
+.fa:hover {
+    color: black;
+}
 
 
 img{
     width: 100%;
     height: auto;
 }
-
+/*sfull size image style*/
 .fullscreen{
     width:100%;
-    height:100%;
-    background-color: black;
-    opacity: 0.8;
+    height: 100%;
+    padding: 20px;
     position: absolute;
-    left:0;
     top:0;
+    left: 0;
     z-index:10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .big-image-warper{
+         position: relative;
+    }
+
+    img {
+        width:100%;
+        height: auto;  
+        max-width: 800px;
+    }
+
+    .fa {
+        color: white;
+        font-size: 33px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 22px;
+    }
  }
+
+ /*spinner style*/
+ .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #6befdef5;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+ @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+ 
+ .start-spinner{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccccbac7;
+ } 
+ .stop-spinner{
+    display:none;
+ } 
+
+ @media only screen and (max-width: 600px) {
+    .form-field-btn-warper{
+    
+        button,
+        form {
+            width: 100%;
+       }
+    }
+
+    .headline{
+        font-size: 2.5rem !important;
+    }
+}

@@ -1,7 +1,6 @@
-export class Albums {
+export class Album {
    id: number;
    title: string;
    userId: number;
    creatorName?: string;
-   isDeleted?: boolean;
 }

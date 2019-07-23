@@ -7,26 +7,25 @@
           <i class="fa fa-search"></i>
           <input type="text" name="title" placeholder="Search..." [(ngModel)]="term"/>
        </form>
-       <button (click)="btnClick()">Go to albums page</button>
+       <button (click)="btnClick()"><b>Go to albums page</b></button>
    </div> 
 
    <div  class="flex-container">
-     <div *ngFor="let photo of photos | filter:term" class="photo-flex-item" [ngClass]="isDeleted? 'photo-delete-flex-item' : 'photo-flex-item'">
-
-        <h6  style="background-color:green;">{{photo.title | capitalizeFirstLetter}}</h6>
-      
-        <div style="background-color:red;" class="image-warper" (click)="showBigImage(photo)">
+     <div *ngFor="let photo of photos | filter:term" class="photo-flex-item" 
+     [ngClass]="isDeleted? 'photo-delete-flex-item' : 'photo-flex-item'">
+        <h6>{{photo.title | capitalizeFirstLetter}}</h6>
+        <div class="image-warper" (click)="showBigImage(photo)">
              <img src="{{photo.thumbnailUrl}}"alt="">              
-        </div> 
-        <div style="background-color:pink;" class="delete-icon-warper">
-            <i class="fa fa-trash" *ngIf="!isDeleted" (click)="deleteImage(photo)"></i> 
-       </div> 
-               
+        </div>       
+        <i class="fa fa-trash" *ngIf="!isDeleted" (click)="deleteImage(photo)"></i>               
      </div>
   </div>
   
  </div>
 
  <div class = "fullscreen" *ngIf="showImage">
-   <img src={{url}}>
+   <div class="big-image-warper">
+      <img src={{url}}>
+      <i class="fa fa-times" (click)="closeBigImage()"></i>
+   </div>  
  </div>
