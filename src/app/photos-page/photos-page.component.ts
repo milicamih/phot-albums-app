@@ -12,7 +12,9 @@ import { PhotoAlbumsService } from '../shared/services/photo-albums.service';
 export class PhotosPageComponent implements OnInit {
   photos: Photos [] = [];
   term: string;
-  isDeleted= false;
+  isDeleted = false;
+  url;
+  showImage = false;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private photoAlbumService: PhotoAlbumsService) { }
@@ -29,9 +31,13 @@ export class PhotosPageComponent implements OnInit {
       });
   }
 
-  
-  deleteImage(photo: Photos){
+  deleteImage(photo: Photos) {
     photo.isDeleted = true;
+  }
+
+  showBigImage(photo) {
+    this.url = photo.url;
+    this.showImage = true;
   }
 
   btnClick() {

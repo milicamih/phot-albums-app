@@ -13,15 +13,20 @@
    <div  class="flex-container">
      <div *ngFor="let photo of photos | filter:term" class="photo-flex-item" [ngClass]="isDeleted? 'photo-delete-flex-item' : 'photo-flex-item'">
 
-        <h6>{{photo.title | capitalizeFirstLetter}}</h6>
-        <div class="image-warper">
-             <img src="{{photo.thumbnailUrl}}" (click)="showImage(photo)" alt="">  
-             <div class="delete-icon-warper">
-                  <i class="fa fa-trash" *ngIf="!isDeleted" (click)="deleteImage(photo)"></i> 
-             </div>             
+        <h6  style="background-color:green;">{{photo.title | capitalizeFirstLetter}}</h6>
+      
+        <div style="background-color:red;" class="image-warper" (click)="showBigImage(photo)">
+             <img src="{{photo.thumbnailUrl}}"alt="">              
         </div> 
-                         
+        <div style="background-color:pink;" class="delete-icon-warper">
+            <i class="fa fa-trash" *ngIf="!isDeleted" (click)="deleteImage(photo)"></i> 
+       </div> 
+               
      </div>
   </div>
   
+ </div>
+
+ <div class = "fullscreen" *ngIf="showImage">
+   <img src={{url}}>
  </div>
