@@ -1,4 +1,4 @@
-<div class="gallery-warper">
+<div class="component-warper">
    <h1 class="headline">PHOTO ALBUMS</h1>
   
    <form id="filter">
@@ -7,15 +7,16 @@
       <input type="text" name="title" placeholder="Search..." [(ngModel)]="term"/>   
    </form>
 
-   <div  class="flex-container">
-       <div class="flex-item" *ngFor="let album of albums | filter:term" 
-            [routerLink]="['/photo-album-detail/', album?.id]">
-            <div class="image-warper">
-                <img src="../../assets/img/ba11ed6c6c90e1ed216d5e1ed9e09d44.jpg" alt="">
-                <div class="title-warper"><h1>{{album.title | capitalizeFirstLetter}}</h1></div>
-            </div>
-            <p>By: <b>{{album.creatorName}}</b></p>
-        </div>                    
-    </div>
-</div>
- 
+   <div class="gallery-warper">
+       <div  class="flex-container">
+           <div class="flex-item" *ngFor="let album of albums | filter:term" 
+               [routerLink]="['/photo-album-detail/', album?.id]">
+               <div class="image-warper">
+                    <img src="../../assets/img/galery-background.jpg" alt="galery-background">
+                    <div class="title-warper"><h1>{{album.title | capitalizeFirstLetter}}</h1></div>
+                </div>
+                <p>By: <b>{{album.creatorName}}</b></p>
+           </div>                    
+       </div>
+   </div>
+</div> 

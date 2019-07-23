@@ -12,7 +12,7 @@ import { SpinnerService } from '../shared/services/spinner.service';
 })
 export class PhotosPageComponent implements OnInit {
   photos: Photo [] = [];
-  term: string;
+  term: string; //for filtering photos by title
   url: string;
   showImage = false;
 
@@ -28,17 +28,16 @@ export class PhotosPageComponent implements OnInit {
       data => {
         this.photos = data;
         this.spinnerService.stop();
-        console.log(this.photos);
       }, error => {
         this.spinnerService.stop();
         console.log(error);
       });
   }
-  //DELETE FULL SIZE IMAGE
+ 
   deleteImage(photo: Photo) {
     photo.isDeleted = true;
   }
-  //SHOW FULL SIZE IMAGE
+
   showBigImage(photo: Photo) {
     if(!photo.isDeleted) {
       this.spinnerService.start();
@@ -47,11 +46,11 @@ export class PhotosPageComponent implements OnInit {
       this.spinnerService.stop();
     }
   }
-  //HIDE FULL SIZE IMAGE
+  
   closeBigImage() {
     this.showImage = false;
   }
-  //BACK TO ALBUMS PAGE
+  
   btnClick() {
     this.router.navigateByUrl('/photo-album');
   }

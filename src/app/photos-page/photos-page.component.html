@@ -1,4 +1,4 @@
-<div class="gallery-warper">
+<div class="component-warper">
     <button class="previous-page-btn" (click)="btnClick()"><b><span>Go to albums page</span></b></button>
     <h1 class="headline">PHOTO GALERY</h1>
 
@@ -8,23 +8,23 @@
         <input type="text" name="title" placeholder="Search..." [(ngModel)]="term"/>
     </form>
   
-
-   <div  class="flex-container">
-     <div *ngFor="let photo of photos | filter:term" class="photo-flex-item" 
-     [ngClass]="photo.isDeleted ? 'photo-delete-flex-item' : 'photo-flex-item'">
-        <div class="photo-title-warper">  
-            <h6>{{photo.title | capitalizeFirstLetter}}</h6>
-        </div>  
-        <div class="image-warper image-warper-photo" (click)="showBigImage(photo)">
-             <img src="{{photo.thumbnailUrl}}"alt="">              
-        </div>   
-        <div class="delite-image-warper">   
-            <i class="fa fa-trash" *ngIf="!photo.isDeleted" (click)="deleteImage(photo)"></i>   
-        </div>             
-     </div>
-  </div>
+   <div class="gallery-warper">
+      <div class="flex-container">
+        <div *ngFor="let photo of photos | filter:term" class="photo-flex-item" 
+             [ngClass]="photo.isDeleted ? 'photo-delete-flex-item' : 'photo-flex-item'">
+            <div class="photo-title-warper">  
+                <h6>{{photo.title | capitalizeFirstLetter}}</h6>
+            </div>  
+            <div class="image-warper image-warper-photo" (click)="showBigImage(photo)">
+                <img src="{{photo.thumbnailUrl}}"alt="">              
+            </div>   
+            <div class="delite-image-warper">   
+                <i class="fa fa-trash" *ngIf="!photo.isDeleted" (click)="deleteImage(photo)"></i>   
+            </div>             
+        </div>
+      </div>
+   </div>
 </div>
- 
 
  <div class = "fullscreen" *ngIf="showImage">
    <div class="big-image-warper">

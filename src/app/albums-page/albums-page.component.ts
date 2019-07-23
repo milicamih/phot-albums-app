@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoAlbumsService } from '../shared/services/photo-albums.service';
-import { Album } from '../shared/models/albums';
+import { Album } from '../shared/models/album';
 import { forkJoin } from 'rxjs';
 import { SpinnerService } from '../shared/services/spinner.service';
 
@@ -11,7 +11,7 @@ import { SpinnerService } from '../shared/services/spinner.service';
 })
 export class AlbumsPageComponent implements OnInit {
   albums: Album[] = [];
-  term: string;
+  term: string; //for filtering albums by title
 
   constructor(private photoAlbumsService: PhotoAlbumsService,
               private spinnerService: SpinnerService) { }
@@ -27,6 +27,7 @@ export class AlbumsPageComponent implements OnInit {
       this.spinnerService.stop();
     }, (error) => {
       this.spinnerService.stop();
+      console.log(error);
     });
   }
 

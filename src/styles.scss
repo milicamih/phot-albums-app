@@ -31,7 +31,7 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 /*common style*/
-.gallery-warper{
+.component-warper{
     width: 100%;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -44,6 +44,11 @@ body{
        font-family: caveatRegular, sans-serif;
        font-size: 3rem;     
    }
+
+   .gallery-warper{
+       height: calc(97vh - 180px);
+       overflow: auto;
+    }
 
     .flex-container{
         font-size: 0;
@@ -87,7 +92,6 @@ form{
         top: 32px;
     }
 }   
-
 /*album-page style style*/
 .flex-item{
     flex: auto;
@@ -138,8 +142,7 @@ p {
     font-size: 15px;
     color: grey;
 }
-
-  
+ 
 .flex-item:hover .image-warper .title-warper {
     background-image: linear-gradient(to bottom, #6befdef5, #63f1de85, #77fbea52, #e6ede826, #f3f4f126);
 }
@@ -163,7 +166,7 @@ p {
     border: 2px solid #e1e1c4;
     position: absolute;
     top:0;
-    right: 0;
+    left: 0;
 }
 
 .previous-page-btn span {
@@ -226,9 +229,14 @@ p {
 .photo-title-warper{
     height: 30%;
 }
+
 .delite-image-warper{
-    height: 10%;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
 }
+
 h6{
     text-align: center;
     font-size: 16px;
@@ -241,7 +249,6 @@ h6{
     color:$dark-grey;
     font-size: 20px;
     cursor: pointer;
-    float: right;
 }   
 
 .fa:hover {
@@ -253,7 +260,7 @@ img{
     width: 100%;
     height: auto;
 }
-/*sfull size image style*/
+/*full size image style*/
 .fullscreen{
     width:100%;
     height: 100%;
@@ -286,7 +293,22 @@ img{
         right: 22px;
     }
  }
-
+ /*scrollbar style*/
+ ::-webkit-scrollbar {
+    width: 10px;
+   }
+ 
+   ::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 2px rgb(34, 34, 34); 
+   }
+  
+   ::-webkit-scrollbar-thumb {
+     background: $dark-grey;; 
+   }
+ 
+   ::-webkit-scrollbar-thumb:hover {
+     background: $dark-grey;; 
+ }
  /*spinner style*/
  .loader {
     border: 16px solid #f3f3f3;
@@ -324,16 +346,7 @@ img{
  } 
 
  @media only screen and (max-width: 600px) {
-    .form-field-btn-warper{
-    
-        button,
-        form {
-            width: 100%;
-       }
-    }
-
     .headline{
         font-size: 2.5rem !important;
     }
-
 }    
