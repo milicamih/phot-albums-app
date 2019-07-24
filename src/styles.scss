@@ -46,7 +46,7 @@ body{
    }
 
    .gallery-warper{
-       height: calc(97vh - 180px);
+       height: calc(97vh - 210px);
        overflow: auto;
        border: 2px solid $dark-grey;
     }
@@ -204,6 +204,7 @@ p {
     flex: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 190px;
     max-width: 190px;
     margin: 1rem;
@@ -213,10 +214,14 @@ p {
     box-shadow: 9px 7px 9px rgba(92, 69, 81, 0.71);
     padding: 10px;
     cursor: pointer;
+   
 }
 
 .photo-delete-flex-item{
     flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 190px;
     margin: 1rem;
     position: relative;
@@ -228,7 +233,7 @@ p {
 }
 
 .photo-title-warper{
-    height: 30%;
+    height: 40%;
 }
 
 .delite-image-warper{
