@@ -48,6 +48,7 @@ body{
    .gallery-warper{
        height: calc(97vh - 180px);
        overflow: auto;
+       border: 2px solid $dark-grey;
     }
 
     .flex-container{
@@ -63,7 +64,7 @@ body{
 
 form{
     margin: 0 auto;
-    margin: 1.5rem;
+    margin-bottom: 0.5rem;
     position: relative;
 
     input{  
@@ -340,7 +341,7 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ccccbac7;
+    background-color: #ccccbafd;
  } 
  .stop-spinner{
     display:none;
